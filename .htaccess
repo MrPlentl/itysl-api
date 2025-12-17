@@ -1,0 +1,13 @@
+# Deny access to .env files
+<Files ".env">
+    Order allow,deny
+    Deny from all
+</Files>
+
+# Enable mod_rewrite
+RewriteEngine On
+
+# Redirect all API requests to api/v1/index.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^api/v1/(.*)$ api/v1/index.php [QSA,L]
