@@ -1,25 +1,24 @@
-# CakePHP 3
+# Composer
+/vendor/
 
-/vendor/*
-/config/app.php
+# Environment files
+.env
+.env.*
 
-/tmp/cache/models/*
-!/tmp/cache/models/empty
-/tmp/cache/persistent/*
-!/tmp/cache/persistent/empty
-/tmp/cache/views/*
-!/tmp/cache/views/empty
-/tmp/sessions/*
-!/tmp/sessions/empty
-/tmp/tests/*
-!/tmp/tests/empty
+# Logs & cache
+*.log
+cache/
+tmp/
 
-/logs/*
-!/logs/empty
+# PHPUnit
+.phpunit.result.cache
+/phpunit.xml
 
-# CakePHP 2
+# IDEs
+/.idea/
+/.vscode/
+*.iml
 
-/app/tmp/*
-/app/Config/core.php
-/app/Config/database.php
-/vendors/*
+# OS files
+.DS_Store
+Thumbs.db
