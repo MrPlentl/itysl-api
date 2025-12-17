@@ -1,0 +1,26 @@
+name: PR Validation
+
+on:
+  pull_request:
+    branches:
+      - dev
+      - staging
+      - master
+
+jobs:
+  php-lint:
+    name: PHP Syntax Check
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+
+      - name: Validate PHP syntax
+        run: |
+          find . -type f -name "*.php" ! -path "./vendor/*" -print0 | xargs -0 -n1 php -l
