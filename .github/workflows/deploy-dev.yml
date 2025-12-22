@@ -25,6 +25,7 @@ jobs:
           ssh -i ~/.ssh/id_ed25519 \
             ${{ secrets.DEPLOY_SERVER_USER }}@${{ secrets.DEPLOY_SERVER_HOST }} "
               cd public_html/itysl-api_DEV &&
-              git pull origin dev && composer install &&
+              git pull origin dev &&
+              composer install &&
               vendor/bin/phinx migrate
             "
