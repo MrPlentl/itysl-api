@@ -22,4 +22,9 @@ jobs:
 
       - name: Deploy code to staging server
         run: |
-          ssh -i ~/.ssh/id_ed25519 ${{ secrets.DEPLOY_SERVER_USER }}@${{ secrets.DEPLOY_SERVER_HOST }} "cd public_html/itysl-api_STAGING && git pull origin staging"
+          ssh -i ~/.ssh/id_ed25519 \
+            ${{ secrets.DEPLOY_SERVER_USER }}@${{ secrets.DEPLOY_SERVER_HOST }} "
+              cd public_html/itysl-api_STAGING &&
+              git pull origin staging &&
+              vendor/bin/phinx migrate
+            "
