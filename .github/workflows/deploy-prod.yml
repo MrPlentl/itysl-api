@@ -22,5 +22,14 @@ jobs:
 
       - name: Deploy code to production server
         run: |
-          ssh -i ~/.ssh/id_ed25519 ${{ secrets.DEPLOY_SERVER_USER }}@${{ secrets.DEPLOY_SERVER_HOST }} "cd public_html/itysl-api && git pull origin master"
-
+          ssh -i ~/.ssh/id_ed25519 \
+            ${{ secrets.DEPLOY_SERVER_USER }}@${{ secrets.DEPLOY_SERVER_HOST }} "
+              cd public_html/itysl-api &&
+              git pull origin master &&
+              composer install \
+                --no-dev \
+                --optimize-autoloader \
+                --no-interaction \
+                --prefer-dist &&
+              vendor/bin/phinx migrate
+            "

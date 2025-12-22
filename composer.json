@@ -10,10 +10,10 @@
 		}
 	],
 	"require": {
-		"php": "^8.4"
+		"php": "^8.4",
+		"robmorgan/phinx": "^0.16.10"
 	},
 	"require-dev": {
-		"robmorgan/phinx": "^0.16.10",
 		"phpunit/phpunit": "^12.5",
 		"phpstan/phpstan": "^2.1"
 	}
