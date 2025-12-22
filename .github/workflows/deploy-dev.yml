@@ -26,6 +26,5 @@ jobs:
             ${{ secrets.DEPLOY_SERVER_USER }}@${{ secrets.DEPLOY_SERVER_HOST }} "
               cd public_html/itysl-api_DEV &&
               git pull origin dev && composer install &&
-              vendor/bin/phinx migrate &&
-              vendor/bin/phinx seed:run
+              vendor/bin/phinx migrate
             "
