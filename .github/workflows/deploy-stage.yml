@@ -26,5 +26,6 @@ jobs:
             ${{ secrets.DEPLOY_SERVER_USER }}@${{ secrets.DEPLOY_SERVER_HOST }} "
               cd public_html/itysl-api_STAGING &&
               git pull origin staging &&
+              composer install &&
               vendor/bin/phinx migrate
             "
