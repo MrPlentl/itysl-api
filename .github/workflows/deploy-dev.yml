@@ -22,4 +22,10 @@ jobs:
 
       - name: Deploy code to dev server
         run: |
-          ssh -i ~/.ssh/id_ed25519 ${{ secrets.DEPLOY_SERVER_USER }}@${{ secrets.DEPLOY_SERVER_HOST }} "cd public_html/itysl-api_DEV && git pull origin dev && vendor/bin/phinx migrate && vendor/bin/phinx seed:run"
+          ssh -i ~/.ssh/id_ed25519 \
+            ${{ secrets.DEPLOY_SERVER_USER }}@${{ secrets.DEPLOY_SERVER_HOST }} "
+              cd public_html/itysl-api_DEV &&
+              git pull origin dev && composer install &&
+              vendor/bin/phinx migrate &&
+              vendor/bin/phinx seed:run
+            "
