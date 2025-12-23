@@ -8,7 +8,7 @@ final class SketchInfoSeeder extends AbstractSeed
     public function run(): void
     {
         // Delete all existing records
-        $this->execute('DELETE FROM sketch_info');
+        // $this->execute('DELETE FROM sketch_info');
 
         // Insert sketch data
         $data = [

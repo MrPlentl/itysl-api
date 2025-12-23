@@ -636,7 +636,7 @@ class Quote {
         if (!$sketchId) return null;
         
         $stmt = $this->conn->prepare(
-            "SELECT id, sketch_name, episode, season, episode_number, description, link 
+            "SELECT id, sketch_name, description, link 
              FROM sketch_info WHERE id = ?"
         );
         $stmt->bind_param('i', $sketchId);
@@ -647,9 +647,6 @@ class Quote {
             return [
                 'id' => (int)$row['id'],
                 'sketch_name' => $row['sketch_name'],
-                'episode' => $row['episode'],
-                'season' => $row['season'] ? (int)$row['season'] : null,
-                'episode_number' => $row['episode_number'] ? (int)$row['episode_number'] : null,
                 'description' => $row['description'],
                 'link' => $row['link']
             ];
