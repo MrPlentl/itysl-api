@@ -22,3 +22,6 @@ tmp/
 # OS files
 .DS_Store
 Thumbs.db
+
+# Unprocessed Assets
+/assets/unprocessed/

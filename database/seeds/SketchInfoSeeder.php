@@ -1,51 +1,110 @@
 <?php
-
 declare(strict_types=1);
 
 use Phinx\Seed\AbstractSeed;
 
-class SketchInfoSeeder extends AbstractSeed
+final class SketchInfoSeeder extends AbstractSeed
 {
-    public function getDependencies(): array
-    {
-        return [];
-    }
-
-    /**
-     * Run Method.
-     *
-     * Write your database seeder using this method.
-     *
-     * More information on writing seeders is available here:
-     * https://book.cakephp.org/phinx/0/en/seeding.html
-     */
     public function run(): void
     {
+        // Delete all existing records
+        $this->execute('DELETE FROM sketch_info');
+
+        // Insert sketch data
         $data = [
-            [
-                'sketch_name' => 'Focus Group',
-                'episode' => 'S01E01',
-                'season' => 1,
-                'episode_number' => 1,
-            ],
-            [
-                'sketch_name' => 'The Dinner',
-                'episode' => 'S01E01',
-                'season' => 1,
-                'episode_number' => 1,
-            ],
-            [
-                'sketch_name' => 'Baby of the Year',
-                'episode' => 'S01E03',
-                'season' => 1,
-                'episode_number' => 3,
-            ],
-            [
-                'sketch_name' => 'Carver Vacuum',
-                'episode' => 'S01E04',
-                'season' => 1,
-                'episode_number' => 4,
-            ],
+            ['episode_info_id' => 1, 'sketch_name' => 'Intro', 'description' => 'Tim Robinson breaks out characters', 'link' => 'https://www.netflix.com/watch/80081931?t=7'],
+            ['episode_info_id' => 1, 'sketch_name' => 'Lady Luck', 'description' => 'A frenzied Rat Pack wannabe', 'link' => 'https://www.netflix.com/watch/80081931?t=77'],
+            ['episode_info_id' => 1, 'sketch_name' => 'Mitchell\'s Limos', 'description' => 'A disturbed limo employee', 'link' => 'https://www.netflix.com/watch/80081931?t=342'],
+            ['episode_info_id' => 1, 'sketch_name' => 'The Pointer Brothers', 'description' => 'The famous Pointer Brothers', 'link' => 'https://www.netflix.com/watch/80081931?t=569'],
+            ['episode_info_id' => 1, 'sketch_name' => 'Tampa Bay Wrestling Association', 'description' => 'A wrestling star hopeful', 'link' => 'https://www.netflix.com/watch/80081931?t=864'],
+            ['episode_info_id' => 1, 'sketch_name' => 'Jeff', 'description' => 'A dad that loves Jeff too much', 'link' => 'https://www.netflix.com/watch/80081931?t=1060'],
+            ['episode_info_id' => 1, 'sketch_name' => 'Self-Defense', 'description' => 'A gun shopper with bathroom issues', 'link' => 'https://www.netflix.com/watch/80081931?t=1365'],
+            ['episode_info_id' => 2, 'sketch_name' => 'Both Ways', 'description' => 'An awkward exit at a job interview.', 'link' => 'https://www.netflix.com/watch/80986856?t=7'],
+            ['episode_info_id' => 2, 'sketch_name' => 'Has This Ever Happened To You', 'description' => 'A very specific legal problem.', 'link' => 'https://www.netflix.com/watch/80986856?t=101'],
+            ['episode_info_id' => 2, 'sketch_name' => 'Baby of the Year', 'description' => 'Things get ugly at the "Baby of the Year" contest.', 'link' => 'https://www.netflix.com/watch/80986856?t=208'],
+            ['episode_info_id' => 2, 'sketch_name' => 'Instagram', 'description' => 'How do I look in that? So cute!', 'link' => 'https://www.netflix.com/watch/80986856?t=444'],
+            ['episode_info_id' => 2, 'sketch_name' => 'Gift Receipt', 'description' => 'A gift receipt causes stress.', 'link' => 'https://www.netflix.com/watch/80986856?t=563'],
+            ['episode_info_id' => 3, 'sketch_name' => 'Biker Guy', 'description' => 'Now that is a nice motorcycle!', 'link' => 'https://www.netflix.com/watch/80986857?t=10'],
+            ['episode_info_id' => 3, 'sketch_name' => 'River Mountain High #1', 'description' => 'A nifty new tug-friendly T-shirt.', 'link' => 'https://www.netflix.com/watch/80986857?t=134'],
+            ['episode_info_id' => 3, 'sketch_name' => 'Wilson\'s Toupees', 'description' => 'The smart way to ditch your toupee.', 'link' => 'https://www.netflix.com/watch/80986857?t=277'],
+            ['episode_info_id' => 3, 'sketch_name' => 'Pink Bag', 'description' => 'A prank doesn\'t go so well.', 'link' => 'https://www.netflix.com/watch/80986857?t=379'],
+            ['episode_info_id' => 3, 'sketch_name' => 'River Mountain High #2', 'description' => 'TC Tuggers commercial', 'link' => 'https://www.netflix.com/watch/80986857?t=567'],
+            ['episode_info_id' => 3, 'sketch_name' => 'The Man', 'description' => 'An airline passenger gets aggressively creepy.', 'link' => 'https://www.netflix.com/watch/80986857?t=642'],
+            ['episode_info_id' => 4, 'sketch_name' => 'Which Hand', 'description' => 'A magic show opens up a marital rift.', 'link' => 'https://www.netflix.com/watch/80986858?t=9'],
+            ['episode_info_id' => 4, 'sketch_name' => 'Focus Group', 'description' => 'Interesting ideas at a car design brainstorm.', 'link' => 'https://www.netflix.com/watch/80986858?t=235'],
+            ['episode_info_id' => 4, 'sketch_name' => 'Laser Spine Specialists', 'description' => 'I could get my money back from Robbie Star', 'link' => 'https://www.netflix.com/watch/80986858?t=411'],
+            ['episode_info_id' => 4, 'sketch_name' => 'New Joe', 'description' => 'A fill-in organist at a funeral.', 'link' => 'https://www.netflix.com/watch/80986858?t=573'],
+            ['episode_info_id' => 4, 'sketch_name' => 'Game Night', 'description' => 'A very esoteric charades player.', 'link' => 'https://www.netflix.com/watch/80986858?t=697'],
+            ['episode_info_id' => 5, 'sketch_name' => 'Lifetime Achievement Award', 'description' => 'A service dog gets super friendly.', 'link' => 'https://www.netflix.com/watch/80986859?t=31'],
+            ['episode_info_id' => 5, 'sketch_name' => 'Christmas Carol', 'description' => 'Ebenezer Scrooge and the Ghost of Christmas Way-Future.', 'link' => 'https://www.netflix.com/watch/80986859?t=226'],
+            ['episode_info_id' => 5, 'sketch_name' => 'Nachos', 'description' => 'My date is eating all the fully loaded nachos', 'link' => 'https://www.netflix.com/watch/80986859?t=368'],
+            ['episode_info_id' => 5, 'sketch_name' => 'Honk If You\'re Horny', 'description' => 'A man takes a bumper sticker way too literally.', 'link' => 'https://www.netflix.com/watch/80986859?t=600'],
+            ['episode_info_id' => 6, 'sketch_name' => 'Brooks Brothers', 'description' => 'A hot dog–shaped car crash.', 'link' => 'https://www.netflix.com/watch/80986860?t=12'],
+            ['episode_info_id' => 6, 'sketch_name' => 'Choking', 'description' => 'Angels and Archways', 'link' => 'https://www.netflix.com/watch/80986860?t=197'],
+            ['episode_info_id' => 6, 'sketch_name' => 'New Printer', 'description' => 'A co-worker latches on to an expression.', 'link' => 'https://www.netflix.com/watch/80986860?t=375'],
+            ['episode_info_id' => 6, 'sketch_name' => 'The Day Robert Palin\'s Murdered Me', 'description' => 'Music studio riffing goes awry.', 'link' => 'https://www.netflix.com/watch/80986860?t=522'],
+            ['episode_info_id' => 6, 'sketch_name' => 'The Babysitter', 'description' => 'An excuse for tardiness spirals out of control.', 'link' => 'https://www.netflix.com/watch/80986860?t=728'],
+            ['episode_info_id' => 7, 'sketch_name' => 'Fenton\'s Stable and Horse Ranch', 'description' => 'A solution to equine-related emasculation.', 'link' => 'https://www.netflix.com/watch/80986861?t=36'],
+            ['episode_info_id' => 7, 'sketch_name' => 'Chunky', 'description' => 'A problematic game show mascot.', 'link' => 'https://www.netflix.com/watch/80986861?t=138'],
+            ['episode_info_id' => 7, 'sketch_name' => 'Bozo #1', 'description' => 'Do you know any funny videos?', 'link' => 'https://www.netflix.com/watch/80986861?t=367'],
+            ['episode_info_id' => 7, 'sketch_name' => 'Baby Shower', 'description' => 'Baby shower planning gets heated.', 'link' => 'https://www.netflix.com/watch/80986861?t=494'],
+            ['episode_info_id' => 7, 'sketch_name' => 'Bozo #2', 'description' => 'Bozo does the dub', 'link' => 'https://www.netflix.com/watch/80986861?t=701'],
+            ['episode_info_id' => 7, 'sketch_name' => 'Party House', 'description' => 'A weird place to hold an intervention.', 'link' => 'https://www.netflix.com/watch/80986861?t=830'],
+            ['episode_info_id' => 8, 'sketch_name' => 'Lunch Meeting', 'description' => 'An unplanned meeting leads to lunchtime chaos.', 'link' => 'https://www.netflix.com/watch/81212175?t=7'],
+            ['episode_info_id' => 8, 'sketch_name' => 'Coffin Flop', 'description' => 'An unusual reality show.', 'link' => 'https://www.netflix.com/watch/81212175?t=163'],
+            ['episode_info_id' => 8, 'sketch_name' => 'Prank Show', 'description' => 'A prank show at the mall causes an existential crisis.', 'link' => 'https://www.netflix.com/watch/81212175?t=282'],
+            ['episode_info_id' => 8, 'sketch_name' => 'Little Buff Boys', 'description' => 'The "Little Buff Boys" competition.', 'link' => 'https://www.netflix.com/watch/81212175?t=489'],
+            ['episode_info_id' => 8, 'sketch_name' => 'Ghost Tour', 'description' => 'A ghost tour guest goes too far.', 'link' => 'https://www.netflix.com/watch/81212175?t=719'],
+            ['episode_info_id' => 9, 'sketch_name' => 'The Capital Room', 'description' => 'I`m not used to being rich.', 'link' => 'https://www.netflix.com/watch/81212176?t=7'],
+            ['episode_info_id' => 9, 'sketch_name' => 'Dan Flashes', 'description' => 'An office dispute over shirt patterns.', 'link' => 'https://www.netflix.com/watch/81212176?t=122'],
+            ['episode_info_id' => 9, 'sketch_name' => 'Diner Wink', 'description' => 'A little lie about the ice cream store escalates quickly.', 'link' => 'https://www.netflix.com/watch/81212176?t=334'],
+            ['episode_info_id' => 9, 'sketch_name' => 'Shops at the Creek', 'description' => 'The location of Dan Flashes', 'link' => 'https://www.netflix.com/watch/81212176?t=545'],
+            ['episode_info_id' => 9, 'sketch_name' => 'Baby Cries', 'description' => 'A man suspects a baby is aware of his checkered past.', 'link' => 'https://www.netflix.com/watch/81212176?t=620'],
+            ['episode_info_id' => 10, 'sketch_name' => 'Graham\'s Lorelei Lounge', 'description' => 'A professor really regrets his dinner order.', 'link' => 'https://www.netflix.com/watch/81212177?t=7'],
+            ['episode_info_id' => 10, 'sketch_name' => 'Detective Crashmore Trailer', 'description' => 'Detective Crashmore the Movie', 'link' => 'https://www.netflix.com/watch/81212177?t=243'],
+            ['episode_info_id' => 10, 'sketch_name' => 'HD Vac Commercial', 'description' => 'The Carber hot dog vacuum.', 'link' => 'https://www.netflix.com/watch/81212177?t=359'],
+            ['episode_info_id' => 10, 'sketch_name' => 'Detective Crashmore Press Junket', 'description' => 'Detective Crashmore.', 'link' => 'https://www.netflix.com/watch/81212177?t=450'],
+            ['episode_info_id' => 10, 'sketch_name' => 'Qualstarr Trial', 'description' => 'A hat has its day in court.', 'link' => 'https://www.netflix.com/watch/81212177?t=633'],
+            ['episode_info_id' => 11, 'sketch_name' => 'Wife Joke', 'description' => 'An offhanded joke leaves a husband guilt-ridden.', 'link' => 'https://www.netflix.com/watch/81212178?t=7'],
+            ['episode_info_id' => 11, 'sketch_name' => 'Friends Weekend', 'description' => 'A trip backfires while trying to ease tensions.', 'link' => 'https://www.netflix.com/watch/81212178?t=260'],
+            ['episode_info_id' => 11, 'sketch_name' => 'Calico Cut Pants', 'description' => 'A pants-centric website with a specific purpose.', 'link' => 'https://www.netflix.com/watch/81212178?t=420'],
+            ['episode_info_id' => 12, 'sketch_name' => 'Parking Lot', 'description' => 'A novice driver in a parking lot.', 'link' => 'https://www.netflix.com/watch/81212179?t=7'],
+            ['episode_info_id' => 12, 'sketch_name' => 'Del Frisco\'s Double Eagle', 'description' => 'Defying the rules of credit card roulette.', 'link' => 'https://www.netflix.com/watch/81212179?t=125'],
+            ['episode_info_id' => 12, 'sketch_name' => 'Joanie\'s Birthday', 'description' => 'Celebrity impersonators get unruly.', 'link' => 'https://www.netflix.com/watch/81212179?t=334'],
+            ['episode_info_id' => 12, 'sketch_name' => 'Dave Campor', 'description' => 'Little Buff Boy Champion 1996', 'link' => 'https://www.netflix.com/watch/81212179?t=549'],
+            ['episode_info_id' => 12, 'sketch_name' => 'Mars Restaurant', 'description' => 'Date night at a cosmos-themed bar.', 'link' => 'https://www.netflix.com/watch/81212179?t=607'],
+            ['episode_info_id' => 13, 'sketch_name' => 'Dave Suit', 'description' => 'A mistaken identity at work.', 'link' => 'https://www.netflix.com/watch/81212180?t=7'],
+            ['episode_info_id' => 13, 'sketch_name' => 'Driver\'s Ed', 'description' => 'What does she do? Tables!', 'link' => 'https://www.netflix.com/watch/81212180?t=177'],
+            ['episode_info_id' => 13, 'sketch_name' => 'Tammy Craps', 'description' => 'The new "Tammy Craps" doll.', 'link' => 'https://www.netflix.com/watch/81212180?t=449'],
+            ['episode_info_id' => 13, 'sketch_name' => 'Big Wave', 'description' => 'Some interesting instructional videos during a driver\'s ed class.', 'link' => 'https://www.netflix.com/watch/81212180?t=569'],
+            ['episode_info_id' => 13, 'sketch_name' => 'Claire\'s', 'description' => 'An attempted ear-piercing.', 'link' => 'https://www.netflix.com/watch/81212180?t=750'],
+            ['episode_info_id' => 14, 'sketch_name' => 'Barley Tonight', 'description' => 'A TV pundit copes with conflict.', 'link' => 'https://www.netflix.com/watch/81643779?t=7'],
+            ['episode_info_id' => 14, 'sketch_name' => 'Mortal Enemies', 'description' => 'Team building breaks down.', 'link' => 'https://www.netflix.com/watch/81643779?t=182'],
+            ['episode_info_id' => 14, 'sketch_name' => 'Summer Loving', 'description' => 'Is Ronnie here for the right reasons?', 'link' => 'https://www.netflix.com/watch/81643779?t=373'],
+            ['episode_info_id' => 14, 'sketch_name' => 'Street Sets', 'description' => ' A dad tries to look tough.', 'link' => 'https://www.netflix.com/watch/81643779?t=552'],
+            ['episode_info_id' => 14, 'sketch_name' => 'The Driving Crooner', 'description' => 'James asks for a ride home.', 'link' => 'https://www.netflix.com/watch/81643779?t=675'],
+            ['episode_info_id' => 15, 'sketch_name' => 'Supermarket Swap VR Edition', 'description' => 'A VR shopping spree takes a turn.', 'link' => 'https://www.netflix.com/watch/81643780?t=7'],
+            ['episode_info_id' => 15, 'sketch_name' => 'Darmine Doggy Door', 'description' => 'Consider a high-security dog door!', 'link' => 'https://www.netflix.com/watch/81643780?t=184'],
+            ['episode_info_id' => 15, 'sketch_name' => 'You Can\'t park on the Sidewalk', 'description' => 'Ponytail problems.', 'link' => 'https://www.netflix.com/watch/81643780?t=312'],
+            ['episode_info_id' => 15, 'sketch_name' => 'Nude Egg', 'description' => 'A bad egg at the office.', 'link' => 'https://www.netflix.com/watch/81643780?t=491'],
+            ['episode_info_id' => 15, 'sketch_name' => 'Sitcom Taping', 'description' => 'Old wounds surface at a sitcom taping.', 'link' => 'https://www.netflix.com/watch/81643780?t=635'],
+            ['episode_info_id' => 16, 'sketch_name' => 'Richard Brecky as Jellybean', 'description' => 'A silent performer builds a hostile fanbase.', 'link' => 'https://www.netflix.com/watch/81643781?t=7'],
+            ['episode_info_id' => 16, 'sketch_name' => 'Dog Hair', 'description' => 'First date jitters.', 'link' => 'https://www.netflix.com/watch/81643781?t=190'],
+            ['episode_info_id' => 16, 'sketch_name' => 'Club Haunted House', 'description' => 'A doctor monitors a patient\'s heart.', 'link' => 'https://www.netflix.com/watch/81643781?t=405'],
+            ['episode_info_id' => 16, 'sketch_name' => 'Pay it Forward', 'description' => 'Paying it forward.', 'link' => 'https://www.netflix.com/watch/81643781?t=575'],
+            ['episode_info_id' => 16, 'sketch_name' => 'Rat Mom', 'description' => 'Catharsis at an office party.', 'link' => 'https://www.netflix.com/watch/81643781?t=712'],
+            ['episode_info_id' => 17, 'sketch_name' => 'Friend Group', 'description' => 'Stuart\'s co-workers learn about his friend group.', 'link' => 'https://www.netflix.com/watch/81643782?t=7'],
+            ['episode_info_id' => 17, 'sketch_name' => 'Pacific Proposal Park', 'description' => 'A proposal spot does double duty.', 'link' => 'https://www.netflix.com/watch/81643782?t=199'],
+            ['episode_info_id' => 17, 'sketch_name' => 'Gelutol', 'description' => 'Try Gelutol! Goodbye Ronnie.', 'link' => 'https://www.netflix.com/watch/81643782?t=302'],
+            ['episode_info_id' => 17, 'sketch_name' => 'Summer Loving Pt. 2', 'description' => 'Summer Loving Farewell', 'link' => 'https://www.netflix.com/watch/81643782?t=526'],
+            ['episode_info_id' => 17, 'sketch_name' => 'Shirt Brothers', 'description' => 'Matching shirts at a school concert.', 'link' => 'https://www.netflix.com/watch/81643782?t=571'],
+            ['episode_info_id' => 18, 'sketch_name' => 'Volcano', 'description' => 'Amanda, do not say Randall is interesting.', 'link' => 'https://www.netflix.com/watch/81643783?t=7'],
+            ['episode_info_id' => 18, 'sketch_name' => 'Photo Booth', 'description' => 'Father of the bride vs. a wedding photo booth.', 'link' => 'https://www.netflix.com/watch/81643783?t=257'],
+            ['episode_info_id' => 18, 'sketch_name' => 'House Party', 'description' => 'A new small-talk strategy at a party yields unexpected results.', 'link' => 'https://www.netflix.com/watch/81643783?t=413'],
+            ['episode_info_id' => 19, 'sketch_name' => 'Banana Breath', 'description' => 'Banana breath at sensitivity training.', 'link' => 'https://www.netflix.com/watch/81643784?t=7'],
+            ['episode_info_id' => 19, 'sketch_name' => 'Photo Wall of Metal: Metal Motto Search', 'description' => 'Technical issues hit Metal Motto Search.', 'link' => 'https://www.netflix.com/watch/81643784?t=206'],
+            ['episode_info_id' => 19, 'sketch_name' => 'Don Bondarley, King of the Dirty Songs', 'description' => 'Don Bon Darley loses his touch.', 'link' => 'https://www.netflix.com/watch/81643784?t=404'],
+            ['episode_info_id' => 19, 'sketch_name' => 'Tasty Time Vids', 'description' => 'What\'s up with Draven\'s Tasty Time Vids?', 'link' => 'https://www.netflix.com/watch/81643784?t=596'],
         ];
 
         $this->table('sketch_info')->insert($data)->saveData();
