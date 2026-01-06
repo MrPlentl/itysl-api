@@ -24,20 +24,20 @@ $router->get('/sketches/{id}/quotes', function($id) {
     $controller->getQuotes($id);
 });
 
-// POST /sketches - Create new sketch
-$router->post('/sketches', function() {
-    $controller = new SketchesController();
-    $controller->create();
-});
+// // POST /sketches - Create new sketch
+// $router->post('/sketches', function() {
+//     $controller = new SketchesController();
+//     $controller->create();
+// });
 
-// PUT /sketches/{id} - Update sketch
-$router->put('/sketches/{id}', function($id) {
-    $controller = new SketchesController();
-    $controller->update($id);
-});
+// // PUT /sketches/{id} - Update sketch
+// $router->put('/sketches/{id}', function($id) {
+//     $controller = new SketchesController();
+//     $controller->update($id);
+// });
 
-// DELETE /sketches/{id} - Delete sketch
-$router->delete('/sketches/{id}', function($id) {
-    $controller = new SketchesController();
-    $controller->delete($id);
-});
+// // DELETE /sketches/{id} - Delete sketch
+// $router->delete('/sketches/{id}', function($id) {
+//     $controller = new SketchesController();
+//     $controller->delete($id);
+// });
