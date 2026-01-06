@@ -18,20 +18,20 @@ $router->get('/tags/{id}', function($id) {
     $controller->getById($id);
 });
 
-// POST /tags - Create new tag
-$router->post('/tags', function() {
-    $controller = new TagsController();
-    $controller->create();
-});
+// // POST /tags - Create new tag
+// $router->post('/tags', function() {
+//     $controller = new TagsController();
+//     $controller->create();
+// });
 
-// PUT /tags/{id} - Update tag
-$router->put('/tags/{id}', function($id) {
-    $controller = new TagsController();
-    $controller->update($id);
-});
+// // PUT /tags/{id} - Update tag
+// $router->put('/tags/{id}', function($id) {
+//     $controller = new TagsController();
+//     $controller->update($id);
+// });
 
-// DELETE /tags/{id} - Delete tag
-$router->delete('/tags/{id}', function($id) {
-    $controller = new TagsController();
-    $controller->delete($id);
-});
+// // DELETE /tags/{id} - Delete tag
+// $router->delete('/tags/{id}', function($id) {
+//     $controller = new TagsController();
+//     $controller->delete($id);
+// });

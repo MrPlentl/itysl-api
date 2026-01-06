@@ -18,20 +18,20 @@ $router->get('/characters/{id}', function($id) {
     $controller->getById($id);
 });
 
-// POST /characters - Create new character
-$router->post('/characters', function() {
-    $controller = new CharactersController();
-    $controller->create();
-});
+// // POST /characters - Create new character
+// $router->post('/characters', function() {
+//     $controller = new CharactersController();
+//     $controller->create();
+// });
 
-// PUT /characters/{id} - Update character
-$router->put('/characters/{id}', function($id) {
-    $controller = new CharactersController();
-    $controller->update($id);
-});
+// // PUT /characters/{id} - Update character
+// $router->put('/characters/{id}', function($id) {
+//     $controller = new CharactersController();
+//     $controller->update($id);
+// });
 
-// DELETE /characters/{id} - Delete character
-$router->delete('/characters/{id}', function($id) {
-    $controller = new CharactersController();
-    $controller->delete($id);
-});
+// // DELETE /characters/{id} - Delete character
+// $router->delete('/characters/{id}', function($id) {
+//     $controller = new CharactersController();
+//     $controller->delete($id);
+// });

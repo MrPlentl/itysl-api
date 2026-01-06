@@ -7,6 +7,7 @@
  */
 
 // GET /quotes - Get all quotes
+// $router->get('/quotes', 'QuotesController@getAll');
 $router->get('/quotes', function() {
     $controller = new QuotesController();
     $controller->getAll();
@@ -30,29 +31,29 @@ $router->get('/quotes/{id}', function($id) {
     $controller->getById($id);
 });
 
-// POST /quotes - Create new quote
-$router->post('/quotes', function() {
-    $controller = new QuotesController();
-    $controller->create();
-});
+// // POST /quotes - Create new quote
+// $router->post('/quotes', function() {
+//     $controller = new QuotesController();
+//     $controller->create();
+// });
 
-// PUT /quotes/{id} - Update quote (full)
-$router->put('/quotes/{id}', function($id) {
-    $controller = new QuotesController();
-    $controller->update($id, false);
-});
+// // PUT /quotes/{id} - Update quote (full)
+// $router->put('/quotes/{id}', function($id) {
+//     $controller = new QuotesController();
+//     $controller->update($id, false);
+// });
 
-// PATCH /quotes/{id} - Update quote (partial)
-$router->patch('/quotes/{id}', function($id) {
-    $controller = new QuotesController();
-    $controller->update($id, true);
-});
+// // PATCH /quotes/{id} - Update quote (partial)
+// $router->patch('/quotes/{id}', function($id) {
+//     $controller = new QuotesController();
+//     $controller->update($id, true);
+// });
 
-// DELETE /quotes/{id} - Delete quote
-$router->delete('/quotes/{id}', function($id) {
-    $controller = new QuotesController();
-    $controller->delete($id);
-});
+// // DELETE /quotes/{id} - Delete quote
+// $router->delete('/quotes/{id}', function($id) {
+//     $controller = new QuotesController();
+//     $controller->delete($id);
+// });
 
 // Alternative syntax using Controller@method format:
 // $router->get('/quotes', 'QuotesController@getAll');
